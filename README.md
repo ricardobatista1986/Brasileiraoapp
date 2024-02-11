@@ -1,3 +1,7 @@
+by: @freest_man (twitter)
+https://github.com/freest-man/Streamlit_FootballApp
+
+
 # Streamlit_FootballApp
 
 App Deployed Here ---> https://footballapp.streamlit.app/
