@@ -90,7 +90,8 @@ st.markdown(f"* **Ano:** {selected_year} ")
 st.markdown(f"* **Estatística:** {selected_stat} ")
 
 
-st.write(df_selected_team)
+#st.write(df_selected_team) #original
+st.write(df_selected_pos)
 
 
 
