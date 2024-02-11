@@ -11,9 +11,8 @@ st.set_page_config(layout="wide")
 st.title('Brasileirão - Estatísticas')
 
 st.markdown("""
-This app performs web scraping of Brasileirão Séria A Team stats data and enables visualization using PygWalker!
-* **Python libraries:** base64, pandas, streamlit, numpy, matplotlib, seaborn
-* **Data source:** [https://fbref.com/en/](https://fbref.com/en/).
+Este app realiza web scraping dos dados estatísticos das equipes do Brasileirão Série A e possibilita a visualização utilizando o PygWalker!
+* **Fonte:** [Bref.com
 """)
 
 
@@ -30,10 +29,15 @@ league_data = {
     0: "League Standings",
     2: "Squad Stats",
     4: "GK Stats",
+    6: "Squad Advanced Stats",
     8: "Shooting Stats",
     10: "Passing Stats",
+    12: "Pass Types Stats",
+    14: "Goals and Shot Creation Stats",
     16: "Defensive Stats",
-    18: "Possesion Stats"
+    18: "Possesion Stats",
+    20: "Game Time Stats",
+    22: "Miscellanius Stats",
 }
 
 values_list = [value for value in league_data.values()]
@@ -70,14 +74,10 @@ playerstats = load_data(selected_year)
 
 # Sidebar - Team selection
 sorted_unique_team = sorted(playerstats.Squad.unique())
-selected_team = st.sidebar.multiselect('Squad', sorted_unique_team, sorted_unique_team)
+selected_team = st.sidebar.multiselect('Equipe', sorted_unique_team, sorted_unique_team)
 
-# # Sidebar - Position selection
-#unique_pos = ['RB','QB','WR','FB','TE']
-#selected_pos = st.sidebar.multiselect('Position', unique_pos, unique_pos)
 
 # # Filtering data
-#df_selected_team = playerstats[(playerstats.Squad.isin(selected_team))] original
 df_selected_team = playerstats[(playerstats.Squad.isin(selected_team))]
 
 st.markdown(f"* **Data Shown:** {selected_stat} ")
@@ -92,7 +92,7 @@ def get_pyg_renderer() -> "StreamlitRenderer":
     df = df_selected_team
     return StreamlitRenderer(df, spec="./gw_config.json", debug=False)
 
-if st.button("Create Visualisation with this Data"):
+if st.button("Criar Visualização com esses dados"):
     renderer = get_pyg_renderer()
     renderer.render_explore(width=None)
 
