@@ -8,7 +8,7 @@ from pygwalker import GlobalVarManager
 #GlobalVarManager.set_kanaries_api_key(st.secrets["api_key"])
 
 st.set_page_config(layout="wide")
-st.title('Brasileirão - Estatísticas')
+st.title('Brasileirão Série A - Estatísticas')
 
 st.markdown("""
 Este app realiza web scraping dos dados estatísticos das equipes do Brasileirão Série A e possibilita a visualização utilizando o PygWalker!
