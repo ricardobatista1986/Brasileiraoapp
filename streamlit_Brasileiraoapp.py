@@ -80,7 +80,9 @@ selected_team = st.sidebar.multiselect('Equipe', sorted_unique_team, sorted_uniq
 # # Filtering data
 df_selected_team = playerstats[(playerstats.Squad.isin(selected_team))]
 
-st.markdown(f"* **Data Shown:** {selected_stat} ")
+st.markdown(f"* **Ano:** {selected_year} ")
+
+st.markdown(f"* **Estatística:** {selected_stat} ")
 
 
 st.write(df_selected_team)
@@ -95,4 +97,3 @@ def get_pyg_renderer() -> "StreamlitRenderer":
 if st.button("Criar Visualização com esses dados"):
     renderer = get_pyg_renderer()
     renderer.render_explore(width=None)
-
