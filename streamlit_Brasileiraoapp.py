@@ -5,7 +5,7 @@ from pygwalker.api.streamlit import StreamlitRenderer, init_streamlit_comm
 from pygwalker import GlobalVarManager
 
 
-GlobalVarManager.set_kanaries_api_key(st.secrets["api_key"])
+#GlobalVarManager.set_kanaries_api_key(st.secrets["api_key"])
 
 st.set_page_config(layout="wide")
 st.title('Brasileirão - Estatísticas')
