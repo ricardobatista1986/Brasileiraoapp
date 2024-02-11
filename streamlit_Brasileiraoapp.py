@@ -72,8 +72,12 @@ playerstats = load_data(selected_year)
 sorted_unique_team = sorted(playerstats.Squad.unique())
 selected_team = st.sidebar.multiselect('Squad', sorted_unique_team, sorted_unique_team)
 
+# # Sidebar - Position selection
+#unique_pos = ['RB','QB','WR','FB','TE']
+#selected_pos = st.sidebar.multiselect('Position', unique_pos, unique_pos)
 
 # # Filtering data
+#df_selected_team = playerstats[(playerstats.Squad.isin(selected_team))] original
 df_selected_team = playerstats[(playerstats.Squad.isin(selected_team))]
 
 st.markdown(f"* **Data Shown:** {selected_stat} ")
