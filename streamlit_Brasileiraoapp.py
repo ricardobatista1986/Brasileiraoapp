@@ -57,7 +57,7 @@ ass_key = get_keys_by_value(league_data, target_value)
 # Web scraping of EPL Team stats
 # https://fbref.com/en/comps/9/Premier-League-Stats
 def load_data(year):
-    url = "https://fbref.com/pt/comps/24/" + str(year) + "-" + str(year+1)
+    url = "https://fbref.com/en/comps/24/" + str(year) + "-" + str(year+1)
     if selected_stat == "League Standings":
         html = pd.read_html(url, header=0)
     else:
