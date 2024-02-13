@@ -78,7 +78,7 @@ def load_data(year):
         df['Pts-xPts'] = df['Pts'] - df['xPts']
         df['Pts-xPts'] = df['Pts-xPts'].round(1)
              
-        df = df[["Rk", "Equipe", "P", "V", "E", "D", "G", "GA", "GD", "Pts", "Pts/90", "xG", "xGA", "xGD",
+        df = df[["Cl", "Equipe", "P", "V", "E", "D", "G", "GA", "GD", "Pts", "Pts/90", "xG", "xGA", "xGD",
                  "xPts", "Pts-xPts", "Artilheiro"]]  # Selecionar as colunas desejadas
 
         # Configurações de estilo para congelar a primeira coluna
