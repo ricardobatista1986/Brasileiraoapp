@@ -60,6 +60,30 @@ def load_data(year):
     url = "https://fbref.com/en/comps/24/" + str(year) + "-" + str(year+1)
     if selected_stat == "League Standings":
         html = pd.read_html(url, header=0)
+        df = html[0]  # Obtendo o DataFrame de classificação da liga
+        # Renomear colunas e selecionar apenas as desejadas
+        df = df.rename(columns={"Rk": "Cl",
+                                "Squad": "Equipe",
+                                "MP": "P",
+                                "W": "V",
+                                "D": "E",
+                                "L": "D",
+                                "GF": "G",
+                                "Pts/MP": "Pts/90",
+                                "Top Team Scorer": "Artilheiro"})
+        
+        df["xPts"] = (df["P"] * 3 * ((df["xG"]**1.536) / ((df["xG"]**1.536) + (df["xGA"]**1.536))))
+        df[["xPts"]] = df[["xPts"]].round(1)
+        
+        df['Pts-xPts'] = df['Pts'] - df['xPts']
+        df['Pts-xPts'] = df['Pts-xPts'].round(1)
+             
+        df = df[["Rk", "Equipe", "P", "V", "E", "D", "G", "GA", "GD", "Pts", "Pts/90", "xG", "xGA", "xGD",
+                 "xPts", "Pts-xPts", "Artilheiro"]]  # Selecionar as colunas desejadas
+
+        # Configurações de estilo para congelar a primeira coluna
+        frozen_columns = {"Equipe": {"sticky": True}}
+        
     else:
         html = pd.read_html(url, header=1)
     df = html[ass_key[0]]
