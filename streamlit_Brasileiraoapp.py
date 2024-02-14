@@ -1,4 +1,4 @@
-eimport streamlit as st
+import streamlit as st
 import pandas as pd
 import base64
 from pygwalker.api.streamlit import StreamlitRenderer, init_streamlit_comm
