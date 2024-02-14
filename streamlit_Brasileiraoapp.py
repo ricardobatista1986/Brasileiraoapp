@@ -67,11 +67,15 @@ def load_data(year):
                                 "Pts/MP": "Pts/90",
                                 "Top Team Scorer": "Artilheiro"})
 
-        df["xPts"] = (df["P"] * 3 * ((df["xG"]**1.536) / ((df["xG"]**1.536) + (df["xGA"]**1.536))))
-        df[["xPts"]] = df[["xPts"]].round(1)
-
-        df['Pts-xPts'] = df['Pts'] - df['xPts']
-        df['Pts-xPts'] = df['Pts-xPts'].round(1)
+        df["xPts*"] = (df["P"] * 3 * ((df["xG"]**1.536) / ((df["xG"]**1.536) + (df["xGA"]**1.536))))
+        df['Pts-xPts*'] = df['Pts'] - df['xPts*']
+        
+        df['xPts*'] = df['xPts*'].map("{:.1f}".format)
+        df['Pts-xPts*'] = df['Pts-xPts*'].map("{:.1f}".format)
+        
+        df['xG'] = df['xG'].map("{:.1f}".format)
+        df['xGA'] = df['xGA'].map("{:.1f}".format)
+        df['xGD'] = df['xGD'].map("{:.1f}".format)
 
         df = df[["Cl", "Equipe", "P", "V", "E", "D", "G", "GA", "GD", "Pts", "Pts/90", "xG", "xGA", "xGD",
                  "xPts", "Pts-xPts", "Artilheiro"]]  # Selecionar as colunas desejadas
