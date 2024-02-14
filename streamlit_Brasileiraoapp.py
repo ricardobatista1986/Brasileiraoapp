@@ -51,8 +51,13 @@ ass_key = get_keys_by_value(league_data, target_value)
 
 # Web scraping of EPL Team stats
 # https://fbref.com/en/comps/9/Premier-League-Stats
+# Web scraping of EPL Team stats
+# https://fbref.com/en/comps/9/Premier-League-Stats
 def load_data(year):
-    url = "https://fbref.com/en/comps/24/" + str(year) + "-" + str(year+1)
+    url = "https://fbref.com/pt/comps/24/" + str(year) + "-" + str(year+1)
+ 
+############################################################################################################
+############################################################################################################  
     if selected_stat == "League Standings":
         html = pd.read_html(url, header=0)
         df = html[0]  # Obtendo o DataFrame de classificação da liga
@@ -83,6 +88,239 @@ def load_data(year):
         frozen_columns = {"Equipe": {"sticky": True}}
         
         return df  # Mover esta linha para fora do bloco if
+
+############################################################################################################
+############################################################################################################
+     elif selected_stat == "Squad Stats":
+        html = pd.read_html(url, header=1)
+        df = html[2]  # Obtendo o DataFrame de estatísticas
+        df = df.rename(columns={"Squad": "Equipe",
+                                "# Pl": "#Jogadores",
+                                "Age": "Idade Med.",
+                                "Poss": "Posse de Bola",
+                                "MP": "P",
+                                "Min": "Min.",
+                                "Gls": "G",
+                                "Ast": "A",
+                                "G+A": "G+A",
+                                "G-PK": "G-PK",
+                                "PK": "PK G",
+                                "PKatt": "PK",
+                                "CrdY": "Amarelos",
+                                "CrdR": "Vermelhos",
+                                "xG": "xG",
+                                "npxG": "npxG",
+                                "xAG": "xA",
+                                "npxG+xAG": "npxG+xA",
+                                "PrgC": "Carregadas Prog.",
+                                "PrgP": "Passes Prog.",
+                                "Gls.1": "G/90",
+                                "Ast.1": "A/90",
+                                "G+A.1": "G+A/90",
+                                "G-PK.1": "G-PK/90",
+                                "G+A-PK": "G+A-PK/90",
+                                "xG.1": "xG/90",
+                                "xAG.1": "xA/90",
+                                "xG+xAG": "xG+xA/90",
+                                "npxG.1": "npxG/90",
+                                "npxG+xAG.1": "npxG+xA/90"})
+        
+        df = df[["Equipe", "#Jogadores", "Idade Med.", "Posse de Bola", "P", "Min.", "G", "A", "G+A", "G-PK",
+                  "PK","PK G", "Amarelos", "Vermelhos", "xG", "npxG", "xA", "npxG+xA", "Carregadas Prog.",
+                  "Passes Prog.","G/90", "A/90", "G+A/90", "G-PK/90", "G+A-PK/90", "xG/90", "xA/90",
+                  "xG+xA/90", "npxG/90", "npxG+xA/90"]]# Selecionar as colunas desejadas
+
+        # Configurações de estilo para congelar a segunda coluna
+        frozen_columns = {"Equipe": {"sticky": True}}
+        
+        return df  # Adicione esta linha para retornar o dataframe após as manipulações
+
+############################################################################################################
+############################################################################################################
+    elif selected_stat == "GK Stats":
+        html = pd.read_html(url, header=1)
+        df = html[4]  # Obtendo o DataFrame de estatísticas
+        df = df.rename(columns={"Squad": "Equipe",
+                                "# Pl": "#Goleiros",
+                                "MP": "P",
+                                "Min": "Min.",
+                                "GA": "GA",
+                                "GA90": "GA/90",
+                                "SoTA": "SoTA",
+                                "Saves": "Defesas",
+                                "Save%": "%Defesas",
+                                "W": "V",
+                                "D": "E",
+                                "L": "D",
+                                "CS": "Clean Sheet",
+                                "CS%": "%Clean Sheet",
+                                "PKatt": "PKA",
+                                "PKA": "GPKA",
+                                "PKsv": "PKA Defendidos",
+                                "PKm": "PKA Fora",
+                                "Save%.1": "%PKA Defendidos"})
+        
+        df = df[["Equipe", "#Goleiros", "P", "Min.", "GA", "GA/90", "SoTA", "Defesas", "%Defesas", "V", "E", "D",
+                 "Clean Sheet", "%Clean Sheet", "PKA", "GPKA", "PKA Defendidos", "PKA Fora", "%PKA Defendidos"]]  # Selecionar as colunas desejadas
+
+        # Configurações de estilo para congelar a terceira coluna
+        frozen_columns = {"Equipe": {"sticky": True}}
+        
+        return df  # Adicione esta linha para retornar o dataframe após as manipulações
+        
+############################################################################################################
+############################################################################################################        
+        elif selected_stat == "Squad Advanced GK Stats":
+            html = pd.read_html(url, header=1)
+            df = html[6]  # Obtendo o DataFrame de estatísticas
+            df = df.rename(columns={"Squad": "Equipe",
+                                    "90s": "P",
+                                    "GA": "GA",
+                                    "PKA": "GPKA",
+                                    "FK": "GA Falta",
+                                    "CK": "GA Escanteio",
+                                    "OG": "OG",
+                                    "PSxG": "PSxG",
+                                    "PSxG/SoT": "PSxG/SoTA",
+                                    "PSxG+/-": "PSxG-GA",
+                                    "/90": "PSxG-GA/90",
+                                    "Cmp": "Passes Longos Completos",
+                                    "Att": "Passes Longos",
+                                    "Cmp%": "%Passes Longos Completos",
+                                    "Att (GK)": "Passes Curtos",
+                                    "Thr": "Passes com Mãos",
+                                    "Launch%": "%Passes Longos",
+                                    "AvgLen": "Dist. Média dos Passes",
+                                    "Att.1": "Tiros de Meta",
+                                    "Launch%.1": "%Tiros de Meta Longos",
+                                    "AvgLen.1": "Dist. Média dos Tiros de Meta",
+                                    "Opp": "Cruzamentos A",
+                                    "Stp": "Cruzamentos A Bloqueados",
+                                    "Stp%": "%Cruzamentos A Bloqueados",
+                                    "#OPA": "Ações Def. Fora Peq. Área",
+                                    "#OPA/90": "Ações Def. Fora Peq. Área/90",
+                                    "AvgDist": "Dist. Média Ações Def. Fora Peq. Área"})
+            
+            df = df[["Equipe", "P", "GA", "GPKA", "GA Falta", "GA Escanteio", "OG", "PSxG", "PSxG/SoTA", "PSxG-GA",
+                     "PSxG-GA/90", "Passes Longos", "Passes Longos Completos", "%Passes Longos Completos",
+                     "Passes Curtos", "Passes com Mãos", "%Passes Longos", "Dist. Média dos Passes", "Tiros de Meta",
+                     "%Tiros de Meta Longos", "Dist. Média dos Tiros de Meta", "Cruzamentos A",
+                     "Cruzamentos A Bloqueados", "%Cruzamentos A Bloqueados", "Ações Def. Fora Peq. Área", 
+                     "Ações Def. Fora Peq. Área/90", "Dist. Média Ações Def. Fora Peq. Área"]]  # Selecionar as colunas desejadas
+
+            # Configurações de estilo para congelar a terceira coluna
+            frozen_columns = {"Equipe": {"sticky": True}}
+            
+            return df  # Adicione esta linha para retornar o dataframe após as manipulações
+            
+############################################################################################################
+############################################################################################################           
+        elif selected_stat == "Shooting Stats":
+            html = pd.read_html(url, header=1)
+            df = html[8]  # Obtendo o DataFrame de estatísticas
+            df = df.rename(columns={"Squad": "Equipe",
+                                    "90s": "P",
+                                    "Gls": "G",
+                                    "Sh": "Chutes",
+                                    "SoT": "SoT",
+                                    "SoT%": "%SoT",
+                                    "Sh/90": "Chutes/90",
+                                    "SoT/90": "SoT/90",
+                                    "G/Sh": "G/Chutes",
+                                    "G/SoT": "G/SoT",
+                                    "Dist": "Dist. Média Finalizações",
+                                    "FK": "Chutes Falta",
+                                    "PK": "PK G",
+                                    "PKatt": "PK",
+                                    "xG": "xG",
+                                    "npxG": "npxG",
+                                    "npxG/Sh": "npxG/Chute",
+                                    "G-xG": "G-xG"})
+            
+            df = df[["Equipe", "P", "G", "Chutes", "SoT", "%SoT", "Chutes/90", "SoT/90", "G/Chutes", "G/SoT", 
+                     "Dist. Média Finalizações", "Chutes Falta", "PK","PK G", "xG", "npxG", "npxG/Chute", 
+                     "G-xG"]]  # Selecionar as colunas desejadas
+
+            # Configurações de estilo para congelar a terceira coluna
+            frozen_columns = {"Equipe": {"sticky": True}}   
+            
+            return df  # Adicione esta linha para retornar o dataframe após as manipulações
+                  
+############################################################################################################
+############################################################################################################            
+        elif selected_stat == "Passing Stats":
+            html = pd.read_html(url, header=1)
+            df = html[10]  # Obtendo o DataFrame de estatísticas
+            df = df.rename(columns={"Squad": "Equipe",
+                                    "90s": "P",
+                                    "Cmp": "Passes Completos",
+                                    "Att": "Passes",
+                                    "Cmp%": "%Passes Completos",
+                                    "TotDist": "Dist. Total Passes",
+                                    "PrgDist": "Dist. Total Passes Progressivos",
+                                    "Cmp.1": "Passes Curtos Completos",
+                                    "Att.1": "Passes Curtos",
+                                    "Cmp%.1": "%Passes Curtos Completos",
+                                    "Cmp.2": "Passes Médios Completos",
+                                    "Att.2": "Passes Médios",
+                                    "Cmp%.2": "%Passes Médios Completos",
+                                    "Cmp.3": "Passes Longos Completos",
+                                    "Att.3": "Passes Longos",
+                                    "Cmp%.3": "%Passes Longos Completos",
+                                    "Ast": "A",
+                                    "xAG": "xAG",
+                                    "xA": "xA",
+                                    "A-xAG": "A-xAG",
+                                    "KP": "Passes Importantes",
+                                    "1/3": "Passes Terço Final",
+                                    "PPA": "Passes Área Adv.",
+                                    "CrsPA": "Cruzamentos",
+                                    "PrgP": "Passes Progressivos"})
+            
+            df = df[["Equipe", "P", "Passes", "Passes Completos", "%Passes Completos", "Dist. Total Passes", 
+                     "Dist. Total Passes Prog.", "Passes Curtos", "Passes Curtos Completos", 
+                     "%Passes Curtos Completos", "Passes Médios", "Passes Médios Completos", 
+                     "%Passes Médios Completos", "Passes Longos", "Passes Longos Completos", 
+                     "%Passes Longos Completos", "A", "xAG", "xA", "A-xAG", "Passes Importantes", 
+                     "Passes Terço Final", "Passes Área Adv.", "Cruzamentos", "Passes Progressivos"]]  # Selecionar as colunas desejadas
+
+            # Configurações de estilo para congelar a terceira coluna
+            frozen_columns = {"Equipe": {"sticky": True}}        
+            
+            return df  # Adicione esta linha para retornar o dataframe após as manipulações
+
+############################################################################################################
+############################################################################################################
+        elif selected_stat == "Pass Types Stats":
+            html = pd.read_html(url, header=1)
+            df = html[12]  # Obtendo o DataFrame de estatísticas
+            df = df.rename(columns={"Squad": "Equipe",
+                                    "90s": "P",
+                                    "Att": "Passes",
+                                    "Live": "Passes em Jogo",
+                                    "Dead": "Passes Bola Parada",
+                                    "FK": "Passes Faltas",
+                                    "TB": "Passes Enfiados",
+                                    "Sw": "Inversões de Jogo",
+                                    "Crs": "Cruzamento",
+                                    "TI": "Laterais",
+                                    "CK": "Escanteios",
+                                    "In": "Escanteios Curva Dentro",
+                                    "Out": "Escanteios Curva Fora",
+                                    "Str": "Escanteios Reto",
+                                    "Cmp": "Passes Completos",
+                                    "Off": "Passes Impedimento",
+                                    "Blocks": "Passes Bloqueados"})
+            
+            df = df[["Equipe", "P", "Passes", "Passes em Jogo", "Passes Bola Parada", "Passes Faltas",
+                     "Passes Enfiados", "Inversões de Jogo", "Cruzamento", "Laterais", "Escanteios", 
+                     "Escanteios Curva Dentro", "Escanteios Curva Fora", "Escanteios Reto", "Passes Completos", 
+                     "Passes Impedimento", "Passes Bloqueados"]]  # Selecionar as colunas desejadas
+
+            # Configurações de estilo para congelar a terceira coluna
+            frozen_columns = {"Equipe": {"sticky": True}}      
+            
+            return df  # Adicione esta linha para retornar o dataframe após as manipulações
         
     else:
         html = pd.read_html(url, header=1)
