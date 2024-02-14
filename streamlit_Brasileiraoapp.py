@@ -72,13 +72,12 @@ def load_data(year):
         
         df['xPts*'] = df['xPts*'].map("{:.1f}".format)
         df['Pts-xPts*'] = df['Pts-xPts*'].map("{:.1f}".format)
-        
         df['xG'] = df['xG'].map("{:.1f}".format)
         df['xGA'] = df['xGA'].map("{:.1f}".format)
         df['xGD'] = df['xGD'].map("{:.1f}".format)
 
         df = df[["Cl", "Equipe", "P", "V", "E", "D", "G", "GA", "GD", "Pts", "Pts/90", "xG", "xGA", "xGD",
-                 "xPts", "Pts-xPts", "Artilheiro"]]  # Selecionar as colunas desejadas
+                 "xPts*", "Pts-xPts*", "Artilheiro"]]  # Selecionar as colunas desejadas
 
         # Configurações de estilo para congelar a primeira coluna
         frozen_columns = {"Equipe": {"sticky": True}}
