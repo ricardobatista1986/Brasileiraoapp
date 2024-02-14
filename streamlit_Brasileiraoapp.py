@@ -79,6 +79,8 @@ def load_data(year):
         # Configurações de estilo para congelar a primeira coluna
         frozen_columns = {"Equipe": {"sticky": True}}
         
+        return df  # Mover esta linha para fora do bloco if
+        
     else:
         html = pd.read_html(url, header=1)
         df = html[ass_key[0]]
@@ -86,7 +88,9 @@ def load_data(year):
         raw = raw.fillna(0)
         playerstats = raw
         return playerstats
+
 playerstats = load_data(selected_year)
+
 
 # Sidebar - Team selection
 sorted_unique_team = sorted(playerstats.Squad.unique())
