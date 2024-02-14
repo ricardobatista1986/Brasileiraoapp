@@ -87,18 +87,26 @@ def load_data(year):
         raw = raw.fillna(0)
         playerstats = raw
         return playerstats
-        
+playerstats = load_data(selected_year)
 
 # Sidebar - Team selection
 sorted_unique_team = sorted(playerstats.Squad.unique())
 selected_team = st.sidebar.multiselect('Equipe', sorted_unique_team, sorted_unique_team)
 
+# # Sidebar - Position selection
+# unique_pos = ['RB','QB','WR','FB','TE']
+# selected_pos = st.sidebar.multiselect('Position', unique_pos, unique_pos)
+
 # # Filtering data
+#df_selected_team = playerstats[(playerstats.Squad.isin(selected_team))] #original
 df_selected_team = playerstats[(playerstats.Squad.isin(selected_team))]
 
 st.markdown(f"* **Ano:** {selected_year} ")
+
 st.markdown(f"* **Estatística:** {selected_stat} ")
+#st.write(df_selected_team) #original
 st.write(df_selected_team)
+
 
 @st.cache_resource
 def get_pyg_renderer() -> "StreamlitRenderer":
