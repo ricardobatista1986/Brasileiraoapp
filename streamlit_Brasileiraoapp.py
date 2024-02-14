@@ -4,21 +4,18 @@ import base64
 from pygwalker.api.streamlit import StreamlitRenderer, init_streamlit_comm
 from pygwalker import GlobalVarManager
 
-
 #GlobalVarManager.set_kanaries_api_key(st.secrets["api_key"])
 
 st.set_page_config(layout="wide")
 st.title('Brasileirão Série A - Estatísticas')
 
 st.markdown("""
-Este app realiza web scraping dos dados estatísticos das equipes do Brasileirão Série A e possibilita a visualização utilizando o PygWalker!
+Este app realiza web scraping dos dados estatísticos das equipes do Brasileirão Série A e possibilita a visualização utilizando o PygWalker.
 * **Fonte:** fBref.com
 """)
 
-
 # Establish communication between pygwalker and streamlit
 init_streamlit_comm()
-
 
 #sidebar for user input features
 st.sidebar.header('User Input Features')
@@ -51,8 +48,6 @@ def get_keys_by_value(dictionary, target_value):
 
 target_value = selected_stat
 ass_key = get_keys_by_value(league_data, target_value)
-
-
 
 # Web scraping of EPL Team stats
 # https://fbref.com/en/comps/9/Premier-League-Stats
@@ -92,26 +87,24 @@ def load_data(year):
         raw = raw.fillna(0)
         playerstats = raw
         return playerstats
-
-
+            df = html[ass_key[0]]
+    raw = df.reset_index(drop=True)
+    raw = raw.fillna(0)
+    playerstats = raw
+    return playerstats
+playerstats = load_data(selected_year)
 
 
 # Sidebar - Team selection
 sorted_unique_team = sorted(playerstats.Squad.unique())
 selected_team = st.sidebar.multiselect('Equipe', sorted_unique_team, sorted_unique_team)
 
-
 # # Filtering data
 df_selected_team = playerstats[(playerstats.Squad.isin(selected_team))]
 
 st.markdown(f"* **Ano:** {selected_year} ")
-
 st.markdown(f"* **Estatística:** {selected_stat} ")
-
-
 st.write(df_selected_team)
-
-
 
 @st.cache_resource
 def get_pyg_renderer() -> "StreamlitRenderer":
