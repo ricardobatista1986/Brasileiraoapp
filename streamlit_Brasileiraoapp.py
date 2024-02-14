@@ -1,4 +1,4 @@
-import streamlit as st
+eimport streamlit as st
 import pandas as pd
 import base64
 from pygwalker.api.streamlit import StreamlitRenderer, init_streamlit_comm
@@ -93,7 +93,7 @@ playerstats = load_data(selected_year)
 
 
 # Sidebar - Team selection
-sorted_unique_team = sorted(playerstats.Squad.unique())
+sorted_unique_team = sorted(playerstats.Equipe.unique())
 selected_team = st.sidebar.multiselect('Equipe', sorted_unique_team, sorted_unique_team)
 
 # # Sidebar - Position selection
@@ -102,7 +102,7 @@ selected_team = st.sidebar.multiselect('Equipe', sorted_unique_team, sorted_uniq
 
 # # Filtering data
 #df_selected_team = playerstats[(playerstats.Squad.isin(selected_team))] #original
-df_selected_team = playerstats[(playerstats.Squad.isin(selected_team))]
+df_selected_team = playerstats[(playerstats.Equipe.isin(selected_team))]
 
 st.markdown(f"* **Ano:** {selected_year} ")
 
