@@ -91,7 +91,7 @@ def load_data(year):
 
 ############################################################################################################
 ############################################################################################################
-     elif selected_stat == "Squad Stats":
+    elif selected_stat == "Squad Stats":
         html = pd.read_html(url, header=1)
         df = html[2]  # Obtendo o DataFrame de estatísticas
         df = df.rename(columns={"Squad": "Equipe",
