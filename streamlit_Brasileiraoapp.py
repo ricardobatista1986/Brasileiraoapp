@@ -170,7 +170,7 @@ def load_data(year):
         
 ############################################################################################################
 ############################################################################################################        
-        elif selected_stat == "Squad Advanced GK Stats":
+    elif selected_stat == "Squad Advanced GK Stats":
             html = pd.read_html(url, header=1)
             df = html[6]  # Obtendo o DataFrame de estatísticas
             df = df.rename(columns={"Squad": "Equipe",
@@ -215,7 +215,7 @@ def load_data(year):
             
 ############################################################################################################
 ############################################################################################################           
-        elif selected_stat == "Shooting Stats":
+    elif selected_stat == "Shooting Stats":
             html = pd.read_html(url, header=1)
             df = html[8]  # Obtendo o DataFrame de estatísticas
             df = df.rename(columns={"Squad": "Equipe",
@@ -248,7 +248,7 @@ def load_data(year):
                   
 ############################################################################################################
 ############################################################################################################            
-        elif selected_stat == "Passing Stats":
+    elif selected_stat == "Passing Stats":
             html = pd.read_html(url, header=1)
             df = html[10]  # Obtendo o DataFrame de estatísticas
             df = df.rename(columns={"Squad": "Equipe",
@@ -291,7 +291,7 @@ def load_data(year):
 
 ############################################################################################################
 ############################################################################################################
-        elif selected_stat == "Pass Types Stats":
+    elif selected_stat == "Pass Types Stats":
             html = pd.read_html(url, header=1)
             df = html[12]  # Obtendo o DataFrame de estatísticas
             df = df.rename(columns={"Squad": "Equipe",
