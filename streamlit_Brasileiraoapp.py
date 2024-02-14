@@ -71,27 +71,27 @@ def load_data(year):
                                 "GF": "G",
                                 "Pts/MP": "Pts/90",
                                 "Top Team Scorer": "Artilheiro"})
-        
+
         df["xPts"] = (df["P"] * 3 * ((df["xG"]**1.536) / ((df["xG"]**1.536) + (df["xGA"]**1.536))))
         df[["xPts"]] = df[["xPts"]].round(1)
-        
+
         df['Pts-xPts'] = df['Pts'] - df['xPts']
         df['Pts-xPts'] = df['Pts-xPts'].round(1)
-             
+
         df = df[["Cl", "Equipe", "P", "V", "E", "D", "G", "GA", "GD", "Pts", "Pts/90", "xG", "xGA", "xGD",
                  "xPts", "Pts-xPts", "Artilheiro"]]  # Selecionar as colunas desejadas
 
         # Configurações de estilo para congelar a primeira coluna
         frozen_columns = {"Equipe": {"sticky": True}}
-        
+        return df  # Adiciona esta linha para retornar o DataFrame
+
     else:
         html = pd.read_html(url, header=1)
-    df = html[ass_key[0]]
-    raw = df.reset_index(drop=True)
-    raw = raw.fillna(0)
-    playerstats = raw
-    return playerstats
-playerstats = load_data(selected_year)
+        df = html[ass_key[0]]
+        raw = df.reset_index(drop=True)
+        raw = raw.fillna(0)
+        playerstats = raw
+        return playerstats
 
 
 
