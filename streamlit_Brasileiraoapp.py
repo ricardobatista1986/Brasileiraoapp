@@ -87,12 +87,7 @@ def load_data(year):
         raw = raw.fillna(0)
         playerstats = raw
         return playerstats
-            df = html[ass_key[0]]
-    raw = df.reset_index(drop=True)
-    raw = raw.fillna(0)
-    playerstats = raw
-    return playerstats
-playerstats = load_data(selected_year)
+        playerstats = load_data(selected_year)
 
 
 # Sidebar - Team selection
