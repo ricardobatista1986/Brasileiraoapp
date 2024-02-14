@@ -87,8 +87,7 @@ def load_data(year):
         raw = raw.fillna(0)
         playerstats = raw
         return playerstats
-        playerstats = load_data(selected_year)
-
+        
 
 # Sidebar - Team selection
 sorted_unique_team = sorted(playerstats.Squad.unique())
