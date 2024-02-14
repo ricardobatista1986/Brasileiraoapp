@@ -169,9 +169,9 @@ def load_data(year):
 ############################################################################################################
 ############################################################################################################        
     elif selected_stat == "Squad Advanced GK Stats":
-            html = pd.read_html(url, header=1)
-            df = html[6]  # Obtendo o DataFrame de estatísticas
-            df = df.rename(columns={"Squad": "Equipe",
+        html = pd.read_html(url, header=1)
+        df = html[6]  # Obtendo o DataFrame de estatísticas
+        df = df.rename(columns={"Squad": "Equipe",
                                     "90s": "P",
                                     "GA": "GA",
                                     "PKA": "GPKA",
@@ -199,24 +199,24 @@ def load_data(year):
                                     "#OPA/90": "Ações Def. Fora Peq. Área/90",
                                     "AvgDist": "Dist. Média Ações Def. Fora Peq. Área"})
             
-            df = df[["Equipe", "P", "GA", "GPKA", "GA Falta", "GA Escanteio", "OG", "PSxG", "PSxG/SoTA", "PSxG-GA",
+        df = df[["Equipe", "P", "GA", "GPKA", "GA Falta", "GA Escanteio", "OG", "PSxG", "PSxG/SoTA", "PSxG-GA",
                      "PSxG-GA/90", "Passes Longos", "Passes Longos Completos", "%Passes Longos Completos",
                      "Passes Curtos", "Passes com Mãos", "%Passes Longos", "Dist. Média dos Passes", "Tiros de Meta",
                      "%Tiros de Meta Longos", "Dist. Média dos Tiros de Meta", "Cruzamentos A",
                      "Cruzamentos A Bloqueados", "%Cruzamentos A Bloqueados", "Ações Def. Fora Peq. Área", 
                      "Ações Def. Fora Peq. Área/90", "Dist. Média Ações Def. Fora Peq. Área"]]  # Selecionar as colunas desejadas
 
-            # Configurações de estilo para congelar a terceira coluna
-            frozen_columns = {"Equipe": {"sticky": True}}
+        # Configurações de estilo para congelar a terceira coluna
+        frozen_columns = {"Equipe": {"sticky": True}}
             
-            return df  # Adicione esta linha para retornar o dataframe após as manipulações
+        return df  # Adicione esta linha para retornar o dataframe após as manipulações
             
 ############################################################################################################
 ############################################################################################################           
     elif selected_stat == "Shooting Stats":
-            html = pd.read_html(url, header=1)
-            df = html[8]  # Obtendo o DataFrame de estatísticas
-            df = df.rename(columns={"Squad": "Equipe",
+        html = pd.read_html(url, header=1)
+        df = html[8]  # Obtendo o DataFrame de estatísticas
+        df = df.rename(columns={"Squad": "Equipe",
                                     "90s": "P",
                                     "Gls": "G",
                                     "Sh": "Chutes",
@@ -235,21 +235,21 @@ def load_data(year):
                                     "npxG/Sh": "npxG/Chute",
                                     "G-xG": "G-xG"})
             
-            df = df[["Equipe", "P", "G", "Chutes", "SoT", "%SoT", "Chutes/90", "SoT/90", "G/Chutes", "G/SoT", 
+        df = df[["Equipe", "P", "G", "Chutes", "SoT", "%SoT", "Chutes/90", "SoT/90", "G/Chutes", "G/SoT", 
                      "Dist. Média Finalizações", "Chutes Falta", "PK","PK G", "xG", "npxG", "npxG/Chute", 
                      "G-xG"]]  # Selecionar as colunas desejadas
 
-            # Configurações de estilo para congelar a terceira coluna
-            frozen_columns = {"Equipe": {"sticky": True}}   
+        # Configurações de estilo para congelar a terceira coluna
+        frozen_columns = {"Equipe": {"sticky": True}}   
             
-            return df  # Adicione esta linha para retornar o dataframe após as manipulações
+        return df  # Adicione esta linha para retornar o dataframe após as manipulações
                   
 ############################################################################################################
 ############################################################################################################            
     elif selected_stat == "Passing Stats":
-            html = pd.read_html(url, header=1)
-            df = html[10]  # Obtendo o DataFrame de estatísticas
-            df = df.rename(columns={"Squad": "Equipe",
+        html = pd.read_html(url, header=1)
+        df = html[10]  # Obtendo o DataFrame de estatísticas
+        df = df.rename(columns={"Squad": "Equipe",
                                     "90s": "P",
                                     "Cmp": "Passes Completos",
                                     "Att": "Passes",
@@ -275,24 +275,24 @@ def load_data(year):
                                     "CrsPA": "Cruzamentos",
                                     "PrgP": "Passes Progressivos"})
             
-            df = df[["Equipe", "P", "Passes", "Passes Completos", "%Passes Completos", "Dist. Total Passes", 
+        df = df[["Equipe", "P", "Passes", "Passes Completos", "%Passes Completos", "Dist. Total Passes", 
                      "Dist. Total Passes Prog.", "Passes Curtos", "Passes Curtos Completos", 
                      "%Passes Curtos Completos", "Passes Médios", "Passes Médios Completos", 
                      "%Passes Médios Completos", "Passes Longos", "Passes Longos Completos", 
                      "%Passes Longos Completos", "A", "xAG", "xA", "A-xAG", "Passes Importantes", 
                      "Passes Terço Final", "Passes Área Adv.", "Cruzamentos", "Passes Progressivos"]]  # Selecionar as colunas desejadas
 
-            # Configurações de estilo para congelar a terceira coluna
-            frozen_columns = {"Equipe": {"sticky": True}}        
+        # Configurações de estilo para congelar a terceira coluna
+        frozen_columns = {"Equipe": {"sticky": True}}        
             
-            return df  # Adicione esta linha para retornar o dataframe após as manipulações
+        return df  # Adicione esta linha para retornar o dataframe após as manipulações
 
 ############################################################################################################
 ############################################################################################################
     elif selected_stat == "Pass Types Stats":
-            html = pd.read_html(url, header=1)
-            df = html[12]  # Obtendo o DataFrame de estatísticas
-            df = df.rename(columns={"Squad": "Equipe",
+        html = pd.read_html(url, header=1)
+        df = html[12]  # Obtendo o DataFrame de estatísticas
+        df = df.rename(columns={"Squad": "Equipe",
                                     "90s": "P",
                                     "Att": "Passes",
                                     "Live": "Passes em Jogo",
@@ -310,15 +310,15 @@ def load_data(year):
                                     "Off": "Passes Impedimento",
                                     "Blocks": "Passes Bloqueados"})
             
-            df = df[["Equipe", "P", "Passes", "Passes em Jogo", "Passes Bola Parada", "Passes Faltas",
+        df = df[["Equipe", "P", "Passes", "Passes em Jogo", "Passes Bola Parada", "Passes Faltas",
                      "Passes Enfiados", "Inversões de Jogo", "Cruzamento", "Laterais", "Escanteios", 
                      "Escanteios Curva Dentro", "Escanteios Curva Fora", "Escanteios Reto", "Passes Completos", 
                      "Passes Impedimento", "Passes Bloqueados"]]  # Selecionar as colunas desejadas
 
-            # Configurações de estilo para congelar a terceira coluna
-            frozen_columns = {"Equipe": {"sticky": True}}      
+        # Configurações de estilo para congelar a terceira coluna
+        frozen_columns = {"Equipe": {"sticky": True}}      
             
-            return df  # Adicione esta linha para retornar o dataframe após as manipulações
+        return df  # Adicione esta linha para retornar o dataframe após as manipulações
         
     else:
         html = pd.read_html(url, header=1)
