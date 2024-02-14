@@ -78,8 +78,7 @@ def load_data(year):
 
         # Configurações de estilo para congelar a primeira coluna
         frozen_columns = {"Equipe": {"sticky": True}}
-        return df  # Adiciona esta linha para retornar o DataFrame
-
+        
     else:
         html = pd.read_html(url, header=1)
         df = html[ass_key[0]]
