@@ -63,6 +63,7 @@ def load_data(year):
         html = pd.read_html(url, header=0)
         df = html[0]  # Obtendo o DataFrame de classificação da liga
         # Renomear colunas e selecionar apenas as desejadas
+        
         df = df.rename(columns={"Rk": "Cl",
                                 "Squad": "Equipe",
                                 "MP": "P",
@@ -90,7 +91,7 @@ def load_data(year):
                  "xPts", "Pts-xPts", "Artilheiro"]]  # Selecionar as colunas desejadas
 
         # Configurações de estilo para congelar a primeira coluna
-        frozen_columns = {"Equipe": {"sticky": True}}
+        #frozen_columns = {"Equipe": {"sticky": True}}
         
         return df  # Mover esta linha para fora do bloco if
 
@@ -148,7 +149,7 @@ def load_data(year):
                   "xG+xA/90", "npxG/90", "npxG+xA/90"]]# Selecionar as colunas desejadas
 
         # Configurações de estilo para congelar a segunda coluna
-        frozen_columns = {"Equipe": {"sticky": True}}
+        #frozen_columns = {"Equipe": {"sticky": True}}
         
         return df  # Adicione esta linha para retornar o dataframe após as manipulações
 
@@ -183,7 +184,7 @@ def load_data(year):
                  "Clean Sheet", "%Clean Sheet", "PKA", "GPKA", "PKA Defendidos", "PKA Fora", "%PKA Defendidos"]]  # Selecionar as colunas desejadas
 
         # Configurações de estilo para congelar a terceira coluna
-        frozen_columns = {"Equipe": {"sticky": True}}
+        #frozen_columns = {"Equipe": {"sticky": True}}
         
         return df  # Adicione esta linha para retornar o dataframe após as manipulações
         
@@ -230,7 +231,7 @@ def load_data(year):
                      "Ações Def. Fora Peq. Área/90", "Dist. Média Ações Def. Fora Peq. Área"]]  # Selecionar as colunas desejadas
 
         # Configurações de estilo para congelar a terceira coluna
-        frozen_columns = {"Equipe": {"sticky": True}}
+        #frozen_columns = {"Equipe": {"sticky": True}}
             
         return df  # Adicione esta linha para retornar o dataframe após as manipulações
             
@@ -266,7 +267,7 @@ def load_data(year):
                      "G-xG"]]  # Selecionar as colunas desejadas
 
         # Configurações de estilo para congelar a terceira coluna
-        frozen_columns = {"Equipe": {"sticky": True}}   
+        #frozen_columns = {"Equipe": {"sticky": True}}   
             
         return df  # Adicione esta linha para retornar o dataframe após as manipulações
                   
@@ -310,7 +311,7 @@ def load_data(year):
                      "Passes Terço Final", "Passes Área Adv.", "Cruzamentos", "Passes Progressivos"]]  # Selecionar as colunas desejadas
 
         # Configurações de estilo para congelar a terceira coluna
-        frozen_columns = {"Equipe": {"sticky": True}}        
+        #frozen_columns = {"Equipe": {"sticky": True}}        
             
         return df  # Adicione esta linha para retornar o dataframe após as manipulações
 
@@ -344,7 +345,7 @@ def load_data(year):
                      "Passes Impedimento", "Passes Bloqueados"]]  # Selecionar as colunas desejadas
 
         # Configurações de estilo para congelar a terceira coluna
-        frozen_columns = {"Equipe": {"sticky": True}}      
+        #frozen_columns = {"Equipe": {"sticky": True}}      
             
         return df  # Adicione esta linha para retornar o dataframe após as manipulações
 
@@ -383,7 +384,7 @@ def load_data(year):
                      "Ações Defensivas para Gols"]]  # Selecionar as colunas desejadas
 
         # Configurações de estilo para congelar a terceira coluna
-        frozen_columns = {"Equipe": {"sticky": True}}
+        #frozen_columns = {"Equipe": {"sticky": True}}
             
         return df  # Adicione esta linha para retornar o dataframe após as manipulações
 
@@ -418,7 +419,7 @@ def load_data(year):
                      "Cortes + Desarmes", "Rebatida", "Erros Defensivos"]]  # Selecionar as colunas desejadas
 
         # Configurações de estilo para congelar a terceira coluna
-        frozen_columns = {"Equipe": {"sticky": True}}
+        #frozen_columns = {"Equipe": {"sticky": True}}
             
         return df  # Adicione esta linha para retornar o dataframe após as manipulações
 
@@ -463,7 +464,7 @@ def load_data(year):
                      "Passes Progressivos Recebidos"]]  # Selecionar as colunas desejadas
 
         # Configurações de estilo para congelar a terceira coluna
-        frozen_columns = {"Equipe": {"sticky": True}}
+        #frozen_columns = {"Equipe": {"sticky": True}}
             
         return df  # Adicione esta linha para retornar o dataframe após as manipulações
 
@@ -493,7 +494,7 @@ def load_data(year):
                      "GA", "+/-", "+/-/90", "xG", "xGA", "+/- xG", "+/- xG/90"]]  # Selecionar as colunas desejadas
 
         # Configurações de estilo para congelar a terceira coluna
-        frozen_columns = {"Equipe": {"sticky": True}}
+        #frozen_columns = {"Equipe": {"sticky": True}}
             
         return df  # Adicione esta linha para retornar o dataframe após as manipulações    
 
@@ -527,7 +528,7 @@ def load_data(year):
                      "OG", "Recuperação", "Disp. Aéreas Ganhas", "Disp. Aéreas Perdidas", "%Disp. Aéreas Ganhas"]]  # Selecionar as colunas desejadas
 
         # Configurações de estilo para congelar a terceira coluna
-        frozen_columns = {"Equipe": {"sticky": True}}
+        #frozen_columns = {"Equipe": {"sticky": True}}
             
         return df  # Adicione esta linha para retornar o dataframe após as manipulações  
 
