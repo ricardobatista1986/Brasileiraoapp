@@ -91,7 +91,7 @@ def load_data(year):
                  "xPts", "Pts-xPts", "Artilheiro"]]  # Selecionar as colunas desejadas
 
         # Configurações de estilo para congelar a primeira coluna
-        #frozen_columns = {"Equipe": {"sticky": True}}
+        frozen_columns = {"Equipe": {"sticky": True}}
         
         return df  # Mover esta linha para fora do bloco if
 
