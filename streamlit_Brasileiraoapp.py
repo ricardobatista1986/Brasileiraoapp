@@ -55,7 +55,7 @@ ass_key = get_keys_by_value(league_data, target_value)
 # Web scraping of EPL Team stats
 # https://fbref.com/en/comps/9/Premier-League-Stats
 def load_data(year):
-    url = "https://fbref.com/pt/comps/24/" + str(year) + "-" + str(year+1)
+    url = "https://fbref.com/en/comps/24/" + str(year) + "-" + str(year+1)
  
 ############################################################################################################
 ############################################################################################################  
@@ -144,9 +144,9 @@ def load_data(year):
         
         
         df = df[["Equipe", "#Jogadores", "Idade Med.", "Posse de Bola", "P", "Min.", "G", "A", "G+A", "G-PK",
-                  "PK","PK G", "Amarelos", "Vermelhos", "xG", "npxG", "xA", "npxG+xA", "Carregadas Prog.",
-                  "Passes Prog.","G/90", "A/90", "G+A/90", "G-PK/90", "G+A-PK/90", "xG/90", "xA/90",
-                  "xG+xA/90", "npxG/90", "npxG+xA/90"]]# Selecionar as colunas desejadas
+                 "PK","PK G", "Amarelos", "Vermelhos", "xG", "npxG", "xA", "npxG+xA", "Carregadas Prog.",
+                 "Passes Prog.","G/90", "A/90", "G+A/90", "G-PK/90", "G+A-PK/90", "xG/90", "xA/90",
+                 "xG+xA/90", "npxG/90", "npxG+xA/90"]]# Selecionar as colunas desejadas
 
         # Configurações de estilo para congelar a segunda coluna
         #frozen_columns = {"Equipe": {"sticky": True}}
@@ -224,11 +224,11 @@ def load_data(year):
         df["Ações Def. Fora Peq. Área/90"] = df["Ações Def. Fora Peq. Área/90"].round(1)
             
         df = df[["Equipe", "P", "GA", "GPKA", "GA Falta", "GA Escanteio", "OG", "PSxG", "PSxG/SoTA", "PSxG-GA",
-                     "PSxG-GA/90", "Passes Longos", "Passes Longos Completos", "%Passes Longos Completos",
-                     "Passes Curtos", "Passes com Mãos", "%Passes Longos", "Dist. Média dos Passes", "Tiros de Meta",
-                     "%Tiros de Meta Longos", "Dist. Média dos Tiros de Meta", "Cruzamentos A",
-                     "Cruzamentos A Bloqueados", "%Cruzamentos A Bloqueados", "Ações Def. Fora Peq. Área", 
-                     "Ações Def. Fora Peq. Área/90", "Dist. Média Ações Def. Fora Peq. Área"]]  # Selecionar as colunas desejadas
+                 "PSxG-GA/90", "Passes Longos", "Passes Longos Completos", "%Passes Longos Completos",
+                 "Passes Curtos", "Passes com Mãos", "%Passes Longos", "Dist. Média dos Passes", "Tiros de Meta",
+                 "%Tiros de Meta Longos", "Dist. Média dos Tiros de Meta", "Cruzamentos A",
+                 "Cruzamentos A Bloqueados", "%Cruzamentos A Bloqueados", "Ações Def. Fora Peq. Área", 
+                 "Ações Def. Fora Peq. Área/90", "Dist. Média Ações Def. Fora Peq. Área"]]  # Selecionar as colunas desejadas
 
         # Configurações de estilo para congelar a terceira coluna
         #frozen_columns = {"Equipe": {"sticky": True}}
@@ -263,8 +263,8 @@ def load_data(year):
         df["SoT/90"] = df["SoT/90"].round(1)            
             
         df = df[["Equipe", "P", "G", "Chutes", "SoT", "%SoT", "Chutes/90", "SoT/90", "G/Chutes", "G/SoT", 
-                     "Dist. Média Finalizações", "Chutes Falta", "PK","PK G", "xG", "npxG", "npxG/Chute", 
-                     "G-xG"]]  # Selecionar as colunas desejadas
+                 "Dist. Média Finalizações", "Chutes Falta", "PK","PK G", "xG", "npxG", "npxG/Chute", 
+                 "G-xG"]]  # Selecionar as colunas desejadas
 
         # Configurações de estilo para congelar a terceira coluna
         #frozen_columns = {"Equipe": {"sticky": True}}   
@@ -304,11 +304,11 @@ def load_data(year):
             
                         
         df = df[["Equipe", "P", "Passes", "Passes Completos", "%Passes Completos", "Dist. Total Passes", 
-                     "Dist. Total Passes Prog.", "Passes Curtos", "Passes Curtos Completos", 
-                     "%Passes Curtos Completos", "Passes Médios", "Passes Médios Completos", 
-                     "%Passes Médios Completos", "Passes Longos", "Passes Longos Completos", 
-                     "%Passes Longos Completos", "A", "xAG", "xA", "A-xAG", "Passes Importantes", 
-                     "Passes Terço Final", "Passes Área Adv.", "Cruzamentos", "Passes Progressivos"]]  # Selecionar as colunas desejadas
+                 "Dist. Total Passes Prog.", "Passes Curtos", "Passes Curtos Completos", 
+                 "%Passes Curtos Completos", "Passes Médios", "Passes Médios Completos", 
+                 "%Passes Médios Completos", "Passes Longos", "Passes Longos Completos", 
+                 "%Passes Longos Completos", "A", "xAG", "xA", "A-xAG", "Passes Importantes", 
+                 "Passes Terço Final", "Passes Área Adv.", "Cruzamentos", "Passes Progressivos"]]  # Selecionar as colunas desejadas
 
         # Configurações de estilo para congelar a terceira coluna
         #frozen_columns = {"Equipe": {"sticky": True}}        
@@ -340,9 +340,9 @@ def load_data(year):
             
                         
         df = df[["Equipe", "P", "Passes", "Passes em Jogo", "Passes Bola Parada", "Passes Faltas",
-                     "Passes Enfiados", "Inversões de Jogo", "Cruzamento", "Laterais", "Escanteios", 
-                     "Escanteios Curva Dentro", "Escanteios Curva Fora", "Escanteios Reto", "Passes Completos", 
-                     "Passes Impedimento", "Passes Bloqueados"]]  # Selecionar as colunas desejadas
+                 "Passes Enfiados", "Inversões de Jogo", "Cruzamento", "Laterais", "Escanteios", 
+                 "Escanteios Curva Dentro", "Escanteios Curva Fora", "Escanteios Reto", "Passes Completos", 
+                 "Passes Impedimento", "Passes Bloqueados"]]  # Selecionar as colunas desejadas
 
         # Configurações de estilo para congelar a terceira coluna
         #frozen_columns = {"Equipe": {"sticky": True}}      
@@ -377,11 +377,11 @@ def load_data(year):
         df["Ações Criação Gols/90"] = df["Ações Criação Gols/90"].round(1)
             
         df = df[["Equipe", "P", "Ações Criação Chutes", "Ações Criação Chutes/90", "Passes em Jogo para Chutes", 
-                     "Passes Bola Parada para Chutes", "Dribles para Chutes", "Chutes para Chutes", 
-                     "Faltas para Chutes", "Ações Defensivas para Chutes", "Ações Criação Gols", 
-                     "Ações Criação Gols/90", "Passes em Jogo para Gols", "Passes Bola Parada para Gols", 
-                     "Dribles para Gols", "Chutes para Chutes para Gols", "Faltas para Gols", 
-                     "Ações Defensivas para Gols"]]  # Selecionar as colunas desejadas
+                 "Passes Bola Parada para Chutes", "Dribles para Chutes", "Chutes para Chutes", 
+                 "Faltas para Chutes", "Ações Defensivas para Chutes", "Ações Criação Gols", 
+                 "Ações Criação Gols/90", "Passes em Jogo para Gols", "Passes Bola Parada para Gols", 
+                 "Dribles para Gols", "Chutes para Chutes para Gols", "Faltas para Gols", 
+                 "Ações Defensivas para Gols"]]  # Selecionar as colunas desejadas
 
         # Configurações de estilo para congelar a terceira coluna
         #frozen_columns = {"Equipe": {"sticky": True}}
@@ -414,9 +414,9 @@ def load_data(year):
             
                         
         df = df[["Equipe", "P", "Desarmes", "Desarmes Ganhos", "Desarmes Terço Def.", "Desarmes Terço Central", 
-                     "Desarmes Terço Final", "Dribles A", "Dribles A Desarmados", "Dribles A Sofridos", 
-                     "%Dribles A Desarmados", "Bloqueios", "Chutes Bloqueados", "Passes Bloqueados", "Cortes", 
-                     "Cortes + Desarmes", "Rebatida", "Erros Defensivos"]]  # Selecionar as colunas desejadas
+                 "Desarmes Terço Final", "Dribles A", "Dribles A Desarmados", "Dribles A Sofridos", 
+                 "%Dribles A Desarmados", "Bloqueios", "Chutes Bloqueados", "Passes Bloqueados", "Cortes", 
+                 "Cortes + Desarmes", "Rebatida", "Erros Defensivos"]]  # Selecionar as colunas desejadas
 
         # Configurações de estilo para congelar a terceira coluna
         #frozen_columns = {"Equipe": {"sticky": True}}
@@ -456,12 +456,12 @@ def load_data(year):
             
                         
         df = df[["Equipe", "Posse de Bola Média", "P", "Toques na Bola", "Toques na Área Def.", 
-                     "Toques Terço Def.", "Toques Terço Central", "Toques Terço Final", "Toques na Área Ofe.", 
-                     "Toques em Jogo", "Dribles", "Dribles Bem Sucedidos", "%Dribles Bem Sucedidos", 
-                     "Dribles Desarmados", "%Dribles Desarmados", "Conduções", "Dist. Total Conduções", 
-                     "Dist. Total Conduções Progressivas", "Conduções Progressivas", "Conduções Terço Final", 
-                     "Conduções Área", "Perda de Bola", "Desarmes A", "Passes Recebidos", 
-                     "Passes Progressivos Recebidos"]]  # Selecionar as colunas desejadas
+                 "Toques Terço Def.", "Toques Terço Central", "Toques Terço Final", "Toques na Área Ofe.", 
+                 "Toques em Jogo", "Dribles", "Dribles Bem Sucedidos", "%Dribles Bem Sucedidos", 
+                 "Dribles Desarmados", "%Dribles Desarmados", "Conduções", "Dist. Total Conduções", 
+                 "Dist. Total Conduções Progressivas", "Conduções Progressivas", "Conduções Terço Final", 
+                 "Conduções Área", "Perda de Bola", "Desarmes A", "Passes Recebidos", 
+                 "Passes Progressivos Recebidos"]]  # Selecionar as colunas desejadas
 
         # Configurações de estilo para congelar a terceira coluna
         #frozen_columns = {"Equipe": {"sticky": True}}
@@ -491,7 +491,7 @@ def load_data(year):
             
                         
         df = df[["Equipe", "Idade Média", "P", "Min./Início", "Substituições", "Min./Substituição", "P/90", "G", 
-                     "GA", "+/-", "+/-/90", "xG", "xGA", "+/- xG", "+/- xG/90"]]  # Selecionar as colunas desejadas
+                 "GA", "+/-", "+/-/90", "xG", "xGA", "+/- xG", "+/- xG/90"]]  # Selecionar as colunas desejadas
 
         # Configurações de estilo para congelar a terceira coluna
         #frozen_columns = {"Equipe": {"sticky": True}}
@@ -524,8 +524,8 @@ def load_data(year):
             
                         
         df = df[["Equipe", "P", "Amarelos", "Vermelhos", "2 Amarelos", "Faltas Cometidas", "Faltas Sofridas", 
-                     "Impedimentos", "Cruzamentos", "Cortes", "Desarmes Ganhos", "G Penaltis", "G Penaltis A", 
-                     "OG", "Recuperação", "Disp. Aéreas Ganhas", "Disp. Aéreas Perdidas", "%Disp. Aéreas Ganhas"]]  # Selecionar as colunas desejadas
+                 "Impedimentos", "Cruzamentos", "Cortes", "Desarmes Ganhos", "G Penaltis", "G Penaltis A", 
+                 "OG", "Recuperação", "Disp. Aéreas Ganhas", "Disp. Aéreas Perdidas", "%Disp. Aéreas Ganhas"]]  # Selecionar as colunas desejadas
 
         # Configurações de estilo para congelar a terceira coluna
         #frozen_columns = {"Equipe": {"sticky": True}}
