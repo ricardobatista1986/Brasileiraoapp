@@ -70,20 +70,21 @@ def load_data(year):
                                 "D": "E",
                                 "L": "D",
                                 "GF": "G",
+                                "Pts": "Pts",
                                 "Pts/MP": "Pts/90",
                                 "Top Team Scorer": "Artilheiro"})
 
-        df[['xG', 'xGA', 'xGD']] = df[['xG', 'xGA', 'xGD']].astype(float)
+        df[["xG", "xGA", "xGD"]] = df[["xG", "xGA", "xGD"]].astype(float)
         
         df["xPts"] = (df["P"] * 3 * ((df["xG"]**1.536) / ((df["xG"]**1.536) + (df["xGA"]**1.536))))
-        df["xPts"] = df["xPts"].round(1)
+        df[["xPts"]] = df[["xPts"]].round(1)
         
-        df['Pts-xPts'] = df['Pts'] - df['xPts']
-        df['Pts-xPts'] = df['Pts-xPts'].round(1)
+        df["Pts-xPts"] = df["Pts"] - df["xPts"]
+        df[["Pts-xPts"]] = df[["Pts-xPts"]].round(1)
         
-        df['xG'] = df['xG'].round(1)
-        df['xGA'] = df['xGA'].round(1)
-        df['xGD'] = df['xGD'].round(1)
+        df["xG"] = df["xG"].round(1)
+        df["xGA"] = df["xGA"].round(1)
+        df["xGD"] = df["xGD"].round(1)
 
         df = df[["Cl", "Equipe", "P", "V", "E", "D", "G", "GA", "GD", "Pts", "Pts/90", "xG", "xGA", "xGD",
                  "xPts", "Pts-xPts", "Artilheiro"]]  # Selecionar as colunas desejadas
@@ -129,16 +130,16 @@ def load_data(year):
                                 "npxG.1": "npxG/90",
                                 "npxG+xAG.1": "npxG+xA/90"})
         
-        df['G/90'] = df['G/90'].round(1)
-        df['A/90'] = df['A/90'].round(1)
-        df['G+A/90'] = df['G+A/90'].round(1)
-        df['G-PK/90'] = df['G-PK/90'].round(1)
-        df['G+A-PK/90'] = df['G+A-PK/90'].round(1)
-        df['xG/90'] = df['xG/90'].round(1)
-        df['xA/90'] = df['xA/90'].round(1)
-        df['xG+xA/90'] = df['xG+xA/90'].round(1)
-        df['npxG/90'] = df['npxG/90'].round(1)
-        df['npxG+xA/90'] = df['npxG+xA/90'].round(1)
+        df["G/90"] = df["G/90"].round(1)
+        df["A/90"] = df["A/90"].round(1)
+        df["G+A/90"] = df["G+A/90"].round(1)
+        df["G-PK/90"] = df["G-PK/90"].round(1)
+        df["G+A-PK/90"] = df["G+A-PK/90"].round(1)
+        df["xG/90"] = df["xG/90"].round(1)
+        df["xA/90"] = df["xA/90"].round(1)
+        df["xG+xA/90"] = df["xG+xA/90"].round(1)
+        df["npxG/90"] = df["npxG/90"].round(1)
+        df["npxG+xA/90"] = df["npxG+xA/90"].round(1)
         
         
         df = df[["Equipe", "#Jogadores", "Idade Med.", "Posse de Bola", "P", "Min.", "G", "A", "G+A", "G-PK",
@@ -176,7 +177,7 @@ def load_data(year):
                                 "PKm": "PKA Fora",
                                 "Save%.1": "%PKA Defendidos"})
         
-        df['GA/90'] = df['GA/90'].round(1)
+        df["GA/90"] = df["GA/90"].round(1)
         
         df = df[["Equipe", "#Goleiros", "P", "Min.", "GA", "GA/90", "SoTA", "Defesas", "%Defesas", "V", "E", "D",
                  "Clean Sheet", "%Clean Sheet", "PKA", "GPKA", "PKA Defendidos", "PKA Fora", "%PKA Defendidos"]]  # Selecionar as colunas desejadas
@@ -219,7 +220,7 @@ def load_data(year):
                                 "#OPA/90": "Ações Def. Fora Peq. Área/90",
                                 "AvgDist": "Dist. Média Ações Def. Fora Peq. Área"})
             
-        df['Ações Def. Fora Peq. Área/90'] = df['Ações Def. Fora Peq. Área/90'].round(1)
+        df["Ações Def. Fora Peq. Área/90"] = df["Ações Def. Fora Peq. Área/90"].round(1)
             
         df = df[["Equipe", "P", "GA", "GPKA", "GA Falta", "GA Escanteio", "OG", "PSxG", "PSxG/SoTA", "PSxG-GA",
                      "PSxG-GA/90", "Passes Longos", "Passes Longos Completos", "%Passes Longos Completos",
@@ -257,8 +258,8 @@ def load_data(year):
                                 "npxG/Sh": "npxG/Chute",
                                 "G-xG": "G-xG"})
             
-        df['Chutes/90'] = df['Chutes/90'].round(1)
-        df['SoT/90'] = df['SoT/90'].round(1)            
+        df["Chutes/90"] = df["Chutes/90"].round(1)
+        df["SoT/90"] = df["SoT/90"].round(1)            
             
         df = df[["Equipe", "P", "G", "Chutes", "SoT", "%SoT", "Chutes/90", "SoT/90", "G/Chutes", "G/SoT", 
                      "Dist. Média Finalizações", "Chutes Falta", "PK","PK G", "xG", "npxG", "npxG/Chute", 
@@ -371,8 +372,8 @@ def load_data(year):
                                 "Fld": "Faltas para Gols",
                                 "Def": "Ações Defensivas para Gols"})
             
-        df['Ações Criação Chutes/90'] = df['Ações Criação Chutes/90'].round(1)
-        df['Ações Criação Gols/90'] = df['Ações Criação Gols/90'].round(1)
+        df["Ações Criação Chutes/90"] = df["Ações Criação Chutes/90"].round(1)
+        df["Ações Criação Gols/90"] = df["Ações Criação Gols/90"].round(1)
             
         df = df[["Equipe", "P", "Ações Criação Chutes", "Ações Criação Chutes/90", "Passes em Jogo para Chutes", 
                      "Passes Bola Parada para Chutes", "Dribles para Chutes", "Chutes para Chutes", 
