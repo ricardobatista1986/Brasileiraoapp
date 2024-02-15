@@ -72,18 +72,18 @@ def load_data(year):
                                 "Pts/MP": "Pts/90",
                                 "Top Team Scorer": "Artilheiro"})
 
-        df["xPts*"] = (df["P"] * 3 * ((df["xG"]**1.536) / ((df["xG"]**1.536) + (df["xGA"]**1.536))))
-        df[["xPts*"]] = df[["xPts*"]].round(1)
+        df["xPts"] = (df["P"] * 3 * ((df["xG"]**1.536) / ((df["xG"]**1.536) + (df["xGA"]**1.536))))
+        df[["xPts"]] = df[["xPts"]].round(1)
         
-        df['Pts-xPts*'] = df['Pts'] - df['xPts*']
-        df[["Pts-xPts*"]] = df[["Pts-xPts*"]].round(1)
+        df['Pts-xPts'] = df['Pts'] - df['xPts']
+        df[["Pts-xPts"]] = df[["Pts-xPts"]].round(1)
         
         df['xG'] = df['xG'].round(1)
         df['xGA'] = df['xGA'].round(1)
         df['xGD'] = df['xGD'].round(1)
 
         df = df[["Cl", "Equipe", "P", "V", "E", "D", "G", "GA", "GD", "Pts", "Pts/90", "xG", "xGA", "xGD",
-                 "xPts*", "Pts-xPts*", "Artilheiro"]]  # Selecionar as colunas desejadas
+                 "xPts", "Pts-xPts", "Artilheiro"]]  # Selecionar as colunas desejadas
 
         # Configurações de estilo para congelar a primeira coluna
         frozen_columns = {"Equipe": {"sticky": True}}
