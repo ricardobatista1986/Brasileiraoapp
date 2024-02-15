@@ -74,10 +74,10 @@ def load_data(year):
                                 "Top Team Scorer": "Artilheiro"})
 
         df["xPts"] = (df["P"] * 3 * ((df["xG"]**1.536) / ((df["xG"]**1.536) + (df["xGA"]**1.536))))
-        df[["xPts"]] = df[["xPts"]].round(1)
+        df["xPts"] = df["xPts"].round(1)
         
         df['Pts-xPts'] = df['Pts'] - df['xPts']
-        df[["Pts-xPts"]] = df[["Pts-xPts"]].round(1)
+        df['Pts-xPts'] = df['Pts-xPts'].round(1)
         
         df['xG'] = df['xG'].round(1)
         df['xGA'] = df['xGA'].round(1)
