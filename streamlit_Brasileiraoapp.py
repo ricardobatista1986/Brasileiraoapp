@@ -24,18 +24,18 @@ selected_year = st.sidebar.selectbox('Ano', list(reversed(range(2014,2024))))
 
 # Dict for type of stats 
 league_data = {
-    0: "League Standings",
-    2: "Squad Stats",
-    4: "GK Stats",
-    6: "Squad Advanced GK Stats",
-    8: "Shooting Stats",
-    10: "Passing Stats",
-    12: "Pass Types Stats",
-    14: "Goals and Shot Creation Stats",
-    16: "Defensive Stats",
-    18: "Possesion Stats",
-    20: "Game Time Stats",
-    22: "Miscellaneous Stats",
+    0: "Classificação",
+    2: "Estatísticas da Equipe",
+    4: "Estatísticas do Goleiro",
+    6: "Estatísticas do Goleiro (Avançadas)",
+    8: "Estatísticas de Chutes",
+    10: "Estatísticas de Passes",
+    12: "Estatísticas de Tipos de Passes",
+    14: "Estatísticas de Gols e Criação de Chances de Gol",
+    16: "Estatísticas Defensivas",
+    18: "Estatísticas de Posse de Bola",
+    20: "Estatísticas de Tempo de Jogo",
+    22: "Estatísticas Diversas",
 }
 
 values_list = [value for value in league_data.values()]
@@ -59,7 +59,7 @@ def load_data(year):
  
 ############################################################################################################
 ############################################################################################################  
-    if selected_stat == "League Standings":
+    if selected_stat == "Classificação":
         html = pd.read_html(url, header=0)
         df = html[0]  # Obtendo o DataFrame de classificação da liga
         # Renomear colunas e selecionar apenas as desejadas
@@ -97,7 +97,7 @@ def load_data(year):
 
 ############################################################################################################
 ############################################################################################################
-    elif selected_stat == "Squad Stats":
+    elif selected_stat == "Estatísticas da Equipe":
         html = pd.read_html(url, header=1)
         df = html[2]  # Obtendo o DataFrame de estatísticas
         df = df.rename(columns={"Squad": "Equipe",
@@ -155,7 +155,7 @@ def load_data(year):
 
 ############################################################################################################
 ############################################################################################################
-    elif selected_stat == "GK Stats":
+    elif selected_stat == "Estatísticas do Goleiro":
         html = pd.read_html(url, header=1)
         df = html[4]  # Obtendo o DataFrame de estatísticas
         df = df.rename(columns={"Squad": "Equipe",
@@ -190,7 +190,7 @@ def load_data(year):
         
 ############################################################################################################
 ############################################################################################################        
-    elif selected_stat == "Squad Advanced GK Stats":
+    elif selected_stat == "Estatísticas do Goleiro (Avançadas)":
         html = pd.read_html(url, header=1)
         df = html[6]  # Obtendo o DataFrame de estatísticas
         df = df.rename(columns={"Squad": "Equipe",
@@ -237,7 +237,7 @@ def load_data(year):
             
 ############################################################################################################
 ############################################################################################################           
-    elif selected_stat == "Shooting Stats":
+    elif selected_stat == "Estatísticas de Chutes":
         html = pd.read_html(url, header=1)
         df = html[8]  # Obtendo o DataFrame de estatísticas
         df = df.rename(columns={"Squad": "Equipe",
@@ -273,7 +273,7 @@ def load_data(year):
                   
 ############################################################################################################
 ############################################################################################################            
-    elif selected_stat == "Passing Stats":
+    elif selected_stat == "Estatísticas de Passes":
         html = pd.read_html(url, header=1)
         df = html[10]  # Obtendo o DataFrame de estatísticas
         df = df.rename(columns={"Squad": "Equipe",
@@ -317,7 +317,7 @@ def load_data(year):
 
 ############################################################################################################
 ############################################################################################################
-    elif selected_stat == "Pass Types Stats":
+    elif selected_stat == "Estatísticas de Tipos de Passes":
         html = pd.read_html(url, header=1)
         df = html[12]  # Obtendo o DataFrame de estatísticas
         df = df.rename(columns={"Squad": "Equipe",
@@ -351,7 +351,7 @@ def load_data(year):
 
 ############################################################################################################
 ############################################################################################################
-    elif selected_stat == "Goals and Shot Creation Stats":
+    elif selected_stat == "Estatísticas de Gols e Criação de Chances de Gol":
         html = pd.read_html(url, header=1)
         df = html[14]  # Obtendo o DataFrame de estatísticas
         df = df.rename(columns={"Squad": "Equipe",
@@ -390,7 +390,7 @@ def load_data(year):
 
 ############################################################################################################
 ############################################################################################################
-    elif selected_stat == "Defensive Stats":
+    elif selected_stat == "Estatísticas Defensivas":
         html = pd.read_html(url, header=1)
         df = html[16]  # Obtendo o DataFrame de estatísticas
         df = df.rename(columns={"Squad": "Equipe",
@@ -425,7 +425,7 @@ def load_data(year):
 
 ############################################################################################################
 ############################################################################################################
-    elif selected_stat == "Possesion Stats":
+    elif selected_stat == "Estatísticas de Posse de Bola":
         html = pd.read_html(url, header=1)
         df = html[18]  # Obtendo o DataFrame de estatísticas
         df = df.rename(columns={"Squad": "Equipe",
@@ -470,7 +470,7 @@ def load_data(year):
 
 ############################################################################################################
 ############################################################################################################
-    elif selected_stat == "Game Time Stats":
+    elif selected_stat == "Estatísticas de Tempo de Jogo":
         html = pd.read_html(url, header=1)
         df = html[20]  # Obtendo o DataFrame de estatísticas
         df = df.rename(columns={"Squad": "Equipe",
@@ -500,7 +500,7 @@ def load_data(year):
 
 ############################################################################################################
 ############################################################################################################
-    elif selected_stat == "Miscellaneous Stats":
+    elif selected_stat == "Estatísticas Diversas":
         html = pd.read_html(url, header=1)
         df = html[22]  # Obtendo o DataFrame de estatísticas
         df = df.rename(columns={"Squad": "Equipe",
@@ -559,7 +559,7 @@ st.markdown(f"* **Ano:** {selected_year} ")
 
 st.markdown(f"* **Estatística:** {selected_stat} ")
 
-if selected_stat == "League Standings":
+if selected_stat == "Classificação":
     st.markdown(f"* **Cálculo xPts:** Partidas * 3 * (xG^1.536) / ((xG^1.536) + (xGA^1.536))")
 
 #st.write(df_selected_team) #original
