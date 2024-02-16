@@ -560,7 +560,7 @@ st.markdown(f"* **Ano:** {selected_year} ")
 st.markdown(f"* **Estatística:** {selected_stat} ")
 
 if selected_stat == "League Standings":
-    st.markdown(f"* **xPts*:** Cálculo xPts = Partidas * 3 * (xG^1.536) / ((xG^1.536) + (xGA^1.536))")
+    st.markdown(f"* **Cálculo xPts:** Partidas * 3 * (xG^1.536) / ((xG^1.536) + (xGA^1.536))")
 
 #st.write(df_selected_team) #original
 st.write(df_selected_team)
