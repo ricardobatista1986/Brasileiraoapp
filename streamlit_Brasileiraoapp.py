@@ -55,7 +55,7 @@ ass_key = get_keys_by_value(league_data, target_value)
 # Web scraping of EPL Team stats
 # https://fbref.com/en/comps/9/Premier-League-Stats
 def load_data(year):
-    url = "https://fbref.com/en/comps/24/" + str(year) + "-" + str(year+1)
+    url = "https://fbref.com/en/comps/24/" + str(ano) + "-" + str(ano+1)
  
 ############################################################################################################
 ############################################################################################################  
@@ -303,12 +303,7 @@ def load_data(year):
                                 "PrgP": "Passes Progressivos"})
             
                         
-        df = df[["Equipe", "P", "Passes", "Passes Completos", "%Passes Completos", "Dist. Total Passes",
-                 "Dist. Total Passes Prog.", "Passes Curtos", "Passes Curtos Completos",
-                 "%Passes Curtos Completos", "Passes Médios", "Passes Médios Completos",
-                 "%Passes Médios Completos", "Passes Longos", "Passes Longos Completos",
-                 "%Passes Longos Completos", "A", "xAG", "xA", "A-xAG", "Passes Importantes",
-                 "Passes Terço Final", "Passes Área Adv.", "Cruzamentos", "Passes Progressivos"]]  # Selecionar as colunas desejadas
+        df = df[["Equipe", "P", "Passes", "Passes Completos", "%Passes Completos", "Dist. Total Passes", "Dist. Total Passes Prog.", "Passes Curtos", "Passes Curtos Completos", "%Passes Curtos Completos", "Passes Médios", "Passes Médios Completos", "%Passes Médios Completos", "Passes Longos", "Passes Longos Completos", "%Passes Longos Completos", "A", "xAG", "xA", "A-xAG", "Passes Importantes", "Passes Terço Final", "Passes Área Adv.", "Cruzamentos", "Passes Progressivos"]]  # Selecionar as colunas desejadas
 
         # Configurações de estilo para congelar a terceira coluna
         #frozen_columns = {"Equipe": {"sticky": True}}        
