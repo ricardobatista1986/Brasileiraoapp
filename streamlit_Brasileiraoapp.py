@@ -20,7 +20,7 @@ init_streamlit_comm()
 
 #sidebar for user input features
 st.sidebar.header('User Input Features')
-selected_year = st.sidebar.selectbox('Ano', list()) #reversed(range(2014,2024))
+selected_year = st.sidebar.selectbox('Ano', list(reversed(range(2014,2024))))
 
 # Dict for type of stats 
 league_data = {
@@ -303,9 +303,9 @@ def load_data(year):
                                 "PrgP": "Passes Progressivos"})
             
                         
-        df = df[["Equipe", "P", "Passes", "Passes Completos", "%Passes Completos", "Dist. Total Passes", "Dist. Total Passes Prog.",
-                 "Passes Curtos", "Passes Curtos Completos", "%Passes Curtos Completos", "Passes Médios", "Passes Médios Completos",
-                 "%Passes Médios Completos", "Passes Longos", "Passes Longos Completos", "%Passes Longos Completos", "A", "xAG", "xA",
+        df = df[["Equipe", "P", "Passes", "Passes Completos", "%Passes Completos", "Dist. Total Passes", "Dist. Total Passes Prog.", 
+                 "Passes Curtos", "Passes Curtos Completos", "%Passes Curtos Completos", "Passes Médios", "Passes Médios Completos", 
+                 "%Passes Médios Completos", "Passes Longos", "Passes Longos Completos", "%Passes Longos Completos", "A", "xAG", "xA", 
                  "A-xAG", "Passes Importantes", "Passes Terço Final", "Passes Área Adv.", "Cruzamentos", "Passes Progressivos"]]  # Selecionar as colunas desejadas
 
         # Configurações de estilo para congelar a terceira coluna
