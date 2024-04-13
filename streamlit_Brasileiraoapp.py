@@ -20,7 +20,7 @@ init_streamlit_comm()
 
 #sidebar for user input features
 st.sidebar.header('User Input Features')
-selected_year = st.sidebar.selectbox('Ano', list(reversed(range(2014,2024))))
+selected_year = st.sidebar.selectbox('Ano', list(reversed(range(2014,2025))))
 
 # Dict for type of stats 
 league_data = {
